@@ -1,0 +1,46 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+.item-navigation, .item-status {
+    &:after {
+        border-right: 1px solid $gray-200;
+        content: '';
+        position: absolute;
+        height: 100%;
+        right:0;
+        top:0;
+    }
+}
+.item-navigation {
+    line-height: 3;
+}
+.item-status {
+    position: relative;
+}
+
+.item-description {
+    font-size:12px;
+    font-style: italic;
+    fa-icon {
+        font-size: 10px;
+    }
+}
+
+.item-actions {
+    text-align: center;
+    cursor: pointer;
+    .he-statusicon {
+        padding: 3px 5px 1px;
+        &.selective {
+            color:$blue;
+        }
+        &.toggle {
+            background: $blue;
+            color: $white;
+            border-radius: 50%;
+        }
+        &.inactive {
+            opacity: 0.5;
+        }
+    }
+}

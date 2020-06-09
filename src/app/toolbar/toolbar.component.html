@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="toolbar row my-2">
+        <div class="item-navigation col-1">
+            <span class="left-arrow" (click)="showPrevItem()">
+                <fa-icon [icon]="icons.leftArrow"></fa-icon>
+            </span>
+            <span class="items-count">{{ activeItemIndex + 1 }} / {{ items.length }}</span>
+            <span class="right-arrow" (click)="showNextItem()">
+                <fa-icon [icon]='icons.rightArrow'></fa-icon>
+            </span>
+        </div>
+    
+        <div class="item-details col-6 mr-auto">
+            <!-- <ng-container *ngFor="let item of items;"></ng-container> -->
+            <h4 class="item-title mb-0">{{ items[activeItemIndex].title }}</h4>
+            <span class="item-description">{{ items[activeItemIndex].description1 }}
+                <fa-icon [icon]="icons.circle" class="mx-2"></fa-icon>
+                {{ items[activeItemIndex].description2 }}
+            </span>
+        </div>
+
+
+    <div class="item-actions d-inline-flex justify-content-end">
+        <div class="px-2 item-status" *ngFor="let action of actions">{{ action.name }}
+            <span (click)="changeState(action.name)" [ngClass]="items[activeItemIndex][action.name]" class="he-statusicon">
+                <fa-icon [icon]="action.icon"></fa-icon>
+            </span>
+        </div>
+
+        <div class="col-4">
+            <div>data</div>
+            <span class="mx-2">
+                <fa-icon [icon]="icons.download"></fa-icon>
+            </span>
+            <span class="mx-2">
+                <fa-icon [icon]="icons.upload"></fa-icon>
+            </span>
+            <span class="mx-2">
+                <fa-icon [icon]="icons.refresh"></fa-icon>
+            </span>
+        </div>
+    </div>
+</div>

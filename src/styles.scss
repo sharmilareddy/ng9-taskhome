@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/modules/_fonts.scss';
+@import "~bootstrap/scss/bootstrap";
+
+
+// primary font
+$primary_font: 'Nunito' !important;
+
+// font-weight
+$thin:300;
+$regular:normal;
+$semibold:600;
+$bold:bold;
+$black:900;
+
+// Font size
+$font-xs:10px;
+$font-sm: 12px;
+$primary-fs: 14px;
+$font-md: 18px;
+$font-lg: 20px;
+
+body {
+    font-family: $primary_font;
+    font-size: $primary-fs;
+    font-weight: $regular;
+}
+
+.navbar-brand::after {
+    border-right: 1px solid $gray-200;
+    content: '';
+    position: absolute;
+    height: 32px;
+    margin-left: 22px;
+}
+
+    .nav-link {
+        color :$gray-800!important;
+        border: none !important;
+        a {
+            color: $gray-800 !important;
+        }
+        &.active {
+border:none;
+background-color: none;
+position: relative;
+
+&:after {
+    content: '';
+    position: absolute;
+    height:3px;
+    width:30px;
+    background: $blue;
+    bottom:0;
+    left:16px;
+}
+        }
+    }
+.nav-tabs {
+    .nav-item {
+        padding-bottom: 18px;
+    &:first-child {
+        position: absolute;
+        right:0;
+    }
+    }
+}

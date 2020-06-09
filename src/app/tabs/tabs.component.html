@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <tabset #tabset class="d-flex flex-column mt-2">
+      <app-toolbar></app-toolbar>
+      <tab *ngFor="let tab of tabs;" [heading]="tab.heading" [(active)]="tab.active" (selectTab)="tab.active = true"
+      (deselect)="tab.active = false" class="jumbotron">
+      <div [ngSwitch]="tab.id">
+        <div *ngSwitchCase="'tab1'">
+          <h3>Tab 1 selected</h3>
+        </div>
+        <div *ngSwitchCase="'tab2'">
+          <h3>Tab 2 selected</h3>
+          <app-echarts></app-echarts>
+        </div>
+        <div *ngSwitchCase="'tab3'">
+          <h3>Tab 3 Selected</h3>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="switchTo()">Route to Tab1</button>
+          </div>
+        </div>
+        </div>
+      </tab>
+
+      <tab disabled (click)=disableEnable();>
+        <ng-template tabHeading>
+          <div>
+            <span disabled>Sample Id, Sample Name</span>
+            <a class="dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+          </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" *ngFor="let menu of menus" href="#">{{ menu.name }}</a>    
+                  </div>
+          </div>    
+           </ng-template>
+      </tab>
+    </tabset>
+  </div>
+</div>
